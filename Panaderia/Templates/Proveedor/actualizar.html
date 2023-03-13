@@ -1,0 +1,43 @@
+{% include "Inc/header.html" %}
+{% for e in proveedor %}
+
+<div class="ui container">
+    <h1 style="text-align: center;">Formulario Actualizacion Proveedor</h1>
+
+    <form action="" method="POST" class="ui form">
+        {% csrf_token %}
+        <div class="three fields">
+            <div class="field">
+                <label for="">Nombre Proveedor</label>
+                <input type="text" name="nombreproveedor" id="" value="{{e.Nombre}}" required>
+            </div>
+            <div class="field">
+                <label for="">Direccion</label>
+                <input type="text" name="direccion" id="" value="{{e.DireccionP}}" required>
+            </div>
+           
+            <div class="field">
+                <label for="">Selecciona empleado</label>
+                <select name="empleado_id" id="">
+                    {% for em in empleado %}   
+<option value="{{ em.id }}">{{ em.NombreCompleto}}</option>
+{% endfor %}
+                </select>
+               
+           
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+
+<div style="text-align: center;">
+        <button class="ui green button">Actualizar Proveedor</button>
+    </div>
+
+    </form>
+</div>
+
+
+{% include "Inc/footer.html" %}

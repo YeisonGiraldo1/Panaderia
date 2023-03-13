@@ -1,0 +1,39 @@
+{% include "Inc/header.html" %}
+{% load static %}
+
+<div class="ui container">
+<h1 style="text-align: center;">LISTADO EMPLEADOS</h1>
+<table  class="ui inverted teal table">
+<thead>
+    <tr>
+    <th>Nombre Completo</th>
+    <th>Email</th>
+    <th>Direccion</th>
+    <th>Celular</th>
+    <th>Acciones</th>
+</tr>
+</thead>
+
+<tbody>{% for e in empleado%}
+    <tr>
+        <td>{{e.NombreCompleto}}</td>
+        <td>{{e.Email}}</td>
+        <td>{{e.Direccion}}</td>
+        <td>{{e.Celular}}</td>
+        <td>
+            <a href="/Empleado/actualizar/{{ e.id }}"><i class="edit black icon "></i></a>  
+            <a href="/Empleado/borrar/{{ e.id }}"><i class="trash red icon"></i></a>
+        </td>
+    </tr>
+</tbody>
+
+
+{% endfor %}
+</table>
+
+</div>
+
+
+
+
+{% include "Inc/footer.html" %}

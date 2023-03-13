@@ -1,0 +1,44 @@
+{% include "Inc/header.html" %}
+
+{% for e in empleado%}
+
+
+
+<div class="ui container">
+    <h1 style="text-align: center;">Formulario dd actualizacion Empleado</h1>
+
+    <form action="" method="POST" class="ui form">
+        {% csrf_token %}
+        <div class="two fields">
+            <div class="field">
+                <label for="">Nombre Completo</label>
+                <input type="text" name="nombrecompleto" id="" value="{{ e.NombreCompleto}}" required>
+            </div>
+            <div class="field">
+                <label for="">Email</label>
+                <input type="email" name="email" id="" value="{{ e.Email}}" required>
+            </div>
+        </div>
+
+
+
+        <div class="two fields">
+            <div class="field">
+                <label for="">Direccion</label>
+                <input type="text" name="direccion" id="" value="{{ e.Direccion}}" required>
+            </div>
+            <div class="field">
+                <label for="">Celular</label>
+                <input type="number" name="celular" id="" value="{{ e.Celular}}" required>
+            </div>
+        </div>
+
+<div style="text-align: center;">
+        <button class="ui green button">Actualizar Empleado</button>
+    </div>
+
+    </form>
+
+    {% endfor %}
+</div>
+

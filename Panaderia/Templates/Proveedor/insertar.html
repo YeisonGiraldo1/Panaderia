@@ -1,0 +1,41 @@
+{% include "Inc/header.html" %}
+
+
+<div class="ui container">
+    <h1 style="text-align: center;">Formulario Registro Proveedor</h1>
+
+    <form action="" method="POST" class="ui form">
+        {% csrf_token %}
+        <div class="three fields">
+            <div class="field">
+                <label for="">Nombre Proveedor</label>
+                <input type="text" name="nombreproveedor" id="" required>
+            </div>
+            <div class="field">
+                <label for="">Direccion</label>
+                <input type="text" name="direccion" id="" required>
+            </div>
+
+            <div class="field">
+                <label for="">Selecciona empleado</label>
+                <select name="empleado_id" id="">
+                    {% for e in empleados %}
+<option value="{{ e.id }}">{{ e.NombreCompleto }}</option>
+{% endfor %}
+                </select>
+            </div>
+        </div>
+
+
+
+
+<div style="text-align: center;">
+        <button class="ui green button">Guardar Proveedor</button>
+    </div>
+
+    </form>
+</div>
+
+
+
+{% include "Inc/footer.html" %}

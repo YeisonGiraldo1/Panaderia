@@ -1,0 +1,46 @@
+{% include "Inc/header.html" %}
+
+
+<div class="ui container">
+    <h1 style="text-align: center;">Formulario Registro Nuevo Usurio</h1>
+
+    <form action="" method="POST" class="ui form">
+        {% csrf_token %}
+        <div class="two fields">
+            <div class="field">
+                <label for="">Nombre De usuario</label>
+                <input type="text" name="username" id="" required>
+            </div>
+            <div class="field">
+                <label for="">Password</label>
+                <input type="password" name="password" id="" required>
+            </div>
+        </div>
+
+
+
+        <div class="three fields">
+            <div class="field">
+                <label for="">Nombres</label>
+                <input type="text" name="nombres" id="" required>
+            </div>
+            <div class="field">
+                <label for="">Apellidos</label>
+                <input type="text" name="apellidos" id="" required>
+            </div>
+            <div class="field">
+                <label for="">Email</label>
+                <input type="email" name="email" id="" required>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="ui green button">Guardar Usuario</button>
+        </div>
+
+    </form>
+</div>
+
+
+
+{% include "Inc/footer.html" %} {% include "Inc/footer.html" %}

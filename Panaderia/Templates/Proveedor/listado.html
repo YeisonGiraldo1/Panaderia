@@ -1,0 +1,63 @@
+{% include "Inc/header.html" %}
+{% load static %}
+
+
+<script src="{% static 'Js/sweetalert.min.js'%}"></script>
+
+<div class="ui container">
+<h1 style="text-align: center;">LISTADO PROVEEDORES</h1>
+<table  class="ui inverted teal table">
+<thead>
+    <tr>
+    <th>Nombre Proveedor</th>
+    <th>Direccion</th>
+    <th>NombreCompleto</th>
+    <th>Acciones</th>
+</tr>
+</thead>
+
+<tbody>{% for e in proveedor%}
+    <tr>
+        <td>{{e.1}}</td>
+        <td>{{e.2}}</td>
+        <td>{{e.3}}</td>
+        <td>
+          <a href="/Proveedor/actualizar/{{ e.0 }}"><i class="edit black icon"></i></a> 
+            <a href="#" onclick='borrar("{{e.0}}")'><i class="trash red icon"></i></a>
+        </td>
+    </tr>
+</tbody>
+
+
+{% endfor %}
+</table>
+
+</div>
+
+
+<script>
+    function borrar(id){
+    swal({
+  title: "Estas seguro que quieres borrar?",
+  text: "La informacion que borres no la puedes recuperar!",
+  icon: "warning",
+  buttons: ["Cancelar", true],
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    location.href = "/Proveedor/borrar/" + id;
+    swal("Se ha borrado exitosamente!", {
+      icon: "success",
+    });
+
+  } else {
+    swal("la informacion no se va a borrar!");
+  }
+});
+}
+</script>
+
+
+
+{% include "Inc/footer.html" %}
